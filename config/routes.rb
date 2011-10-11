@@ -1,7 +1,16 @@
 CoolRSSJobApp::Application.routes.draw do
-  get "jobs/index"
-
   resources :jobs
+
+  get "main/welcome"
+
+  get "main/index"
+
+  get "jobs/index"
+  
+  match '/jobsearch', :to => 'main#welcome'
+  match '/sources',   :to => 'jobs#index'
+  match '/main/links',   :to => 'main#links'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
